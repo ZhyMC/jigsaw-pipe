@@ -9,6 +9,7 @@ Jigsaw-Pipe是一个Jigsaw.js的附加组件，
    
 在项目下运行如下命令   
 > npm install jigsaw-pipe  
+
 即可安装     
    
 请注意，```jigsaw-pipe```依赖```jigsaw.js```   
