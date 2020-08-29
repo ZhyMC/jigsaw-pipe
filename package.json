@@ -1,0 +1,15 @@
+{
+  "name": "jigsaw-pipe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jigsaw.js": "^5.0.2",
+    "q": "^1.5.1"
+  }
+}
