@@ -24,10 +24,11 @@ describe("基础测试",function(){
 			let count=0;
 
 			pool.on("pipe",(c)=>{
-				c.once("done",()=>{
+				c.once("done",(cb)=>{
 					
 					if(++count==10)
 						done();
+					cb();
 				})
 				c.resume();
 		
@@ -51,9 +52,10 @@ describe("基础测试",function(){
 				let count=0;
 
 				pool.on("pipe",(c)=>{
-					c.once("done",()=>{
+					c.once("done",(cb)=>{
 						c.setRes(c.getData());
 						//console.log(++count);
+						cb();
 					})
 					c.resume();
 			

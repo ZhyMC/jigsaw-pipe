@@ -114,27 +114,23 @@ pool.on("pipe",(conn)=>{
 	conn.pipe(xxxxx);
 
 	conn.getData(); //这是构造JPipe时的第三个参数的值	
-	conn.on("done",()=>{
-		conn.setRes({msg:"ok"});//可以回复JPipe
+	conn.on("done",(callback)=>{
+		callback({msg:"ok"});//可以回复JPipe
 	})
 });
 ```
    
 该事件会携带一个参数，这个参数代表了一个与JPipe的连接，并且是一个标准可读流，可以直接pipe至另一个可写流上。     
    
-该流拥有一个事件done，这个事件done之后可以调用setRes方法进行回复信息。   
+该流拥有一个事件done，可以调用回调函数进行回复信息。   
      
 你也可以不回复信息，也可以不发送信息，可读流和可写流之间的数据仍然会自动传输。    
    
 注意该连接是一次性的，在传输完数据后会自动销毁。   
 
-   
-#### 3.3.1 conn.setRes(data)
-   
-设置要回复的数据。  
-   
-#### 3.3.2 conn 的 done 事件
 
-在该事件之后，你可以通过调用```conn.setRes()```设置回复数据。   
+#### 3.3.1 conn 的 done 事件 done(callback)
+
+该事件会传递一个回调函数 callback 作为参数,若你监听了该事件，请务必调用一次callback用来回复数据。
    
    
